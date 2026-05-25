@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Usuario{
+public abstract class Usuario implements UsuarioInterface{
     private String nome;
     private String email;
     private String senha;
