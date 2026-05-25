@@ -9,7 +9,7 @@ public class Projeto {
     private int vagas;
     private boolean ativo;
 
-    public Projeto(int id, String titulo, String descricao, Professor coordenador, String area, String dataInicio, String prazo, int vagas, boolean ativo){
+    public Projeto(int id, String titulo, String descricao, Professor coordenador, String area, String dataInicio, String prazo, int vagas){
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
