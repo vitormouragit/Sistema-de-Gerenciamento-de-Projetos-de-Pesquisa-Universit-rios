@@ -1,21 +1,20 @@
 package entidades;
 
-import interfaces.UsuarioInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Usuario implements UsuarioInterface{
+public abstract class Usuario{
     private String nome;
     private String email;
     private String senha;
     private boolean ativo;
     private List<String> notificacoes;
 
-    public Usuario(String nome, String email, String senha){
+    public Usuario(String nome, String email, String senha, boolean ativo){
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.ativo = true;
+        this.ativo = ativo;
         this.notificacoes = new ArrayList<>();
     }
 
@@ -39,12 +38,8 @@ public abstract class Usuario implements UsuarioInterface{
         return ativo;
     }
 
-    public void ativar(){
-        this.ativo = true;
-    }
-
-    public void desativar(){
-        this.ativo = false;
+    public void setAtivo(boolean ativo){
+        this.ativo = ativo;
     }
 
     public void adicionarNotificacao(String mensagem){
@@ -60,15 +55,6 @@ public abstract class Usuario implements UsuarioInterface{
         this.notificacoes.clear();
     }
 
-    @Override
-    public abstract String getTipo();
-
-    public String toString(){
-        return "Usuario{" + 
-        "nome: " + getNome() + 
-        ", Email: " + getEmail() + 
-        ", Tipo: " + getTipo() + 
-        ", Ativo: " + isAtivo() + "}";
-    }
+    public abstract String toString();
     
 }

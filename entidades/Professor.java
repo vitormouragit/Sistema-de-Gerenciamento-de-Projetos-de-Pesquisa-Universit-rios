@@ -1,13 +1,9 @@
 package entidades;
 
 public class Professor extends Usuario {
-    
-    public Professor(String nome, String email, String senha){
-        super(nome, email, senha);
+
+    public Professor(String nome, String email, String senha, boolean ativo){
+        super(nome, email, senha, ativo);
     }
 
-    @Override
-    public String getTipo(){
-        return "Professor";
-    }
 }

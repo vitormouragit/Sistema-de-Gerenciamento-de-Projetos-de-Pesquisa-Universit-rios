@@ -1,13 +1,19 @@
 package entidades;
 
-public class Coordenador extends Usuario{
+import interfaces.UsuarioAtivacao;
+
+public class Coordenador extends Professor implements UsuarioAtivacao{
     
-    public Coordenador(String nome, String email, String senha){
-        super(nome, email, senha);
+    public Coordenador(String nome, String email, String senha, boolean ativo){
+        super(nome, email, senha, ativo);
     }
 
-    @Override
-    public String getTipo(){
-        return "Coordenador";
+    public boolean ativar(){
+       return true;
     }
+
+    public boolean desativar(){
+        return false;
+    }
+
 }
