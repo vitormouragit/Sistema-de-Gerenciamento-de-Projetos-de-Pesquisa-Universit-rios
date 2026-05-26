@@ -1,3 +1,7 @@
+import entidades.Professor;
+
+import entidades.Professor;
+
 public class Projeto {
     private int id;
     private String titulo;

@@ -1,5 +1,6 @@
 package entidades;
 
+import interfaces.UsuarioInterface;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +60,7 @@ public abstract class Usuario implements UsuarioInterface{
         this.notificacoes.clear();
     }
 
+    @Override
     public abstract String getTipo();
 
     public String toString(){
