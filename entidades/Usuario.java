@@ -1,9 +1,10 @@
 package entidades;
 
+import interfaces.UsuarioNotificacao;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Usuario{
+public abstract class Usuario implements UsuarioNotificacao{
     private String nome;
     private String email;
     private String senha;
@@ -38,13 +39,24 @@ public abstract class Usuario{
         return ativo;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", ativo=" + ativo +
-                '}';
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
-    
+
+    @Override
+    public void adicionarNotificacao(String mensagem) {
+        this.notificacoes.add(mensagem);
+    }
+
+    @Override
+    public List<String> getNotificacoes() {
+        return this.notificacoes;
+    }
+
+    @Override
+    public void limparNotificacoes() {
+        this.notificacoes.clear();
+    }
+
+    public abstract void exibirMenu();
 }

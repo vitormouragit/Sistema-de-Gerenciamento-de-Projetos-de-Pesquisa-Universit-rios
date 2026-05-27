@@ -6,4 +6,8 @@ public class Professor extends Usuario {
         super(nome, email, senha);
     }
 
+    @Override
+    public void exibirMenu(){
+
+    }
 }

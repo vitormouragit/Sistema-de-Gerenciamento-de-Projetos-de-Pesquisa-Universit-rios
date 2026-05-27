@@ -1,21 +1,12 @@
 package entidades;
 
-import interfaces.UsuarioAtivacao;
-
-public class Coordenador extends Professor implements UsuarioAtivacao{
+public class Coordenador extends Professor {
     
     public Coordenador(String nome, String email, String senha){
         super(nome, email, senha);
     }
 
-    @Override
-    public void ativar(){
-       this.ativo = true;
+    public void alterarStatusUsuario(Usuario usuario, boolean novoStatus) {
+        usuario.setAtivo(novoStatus);
     }
-
-    @Override
-    public void desativar(){
-        this.ativo = false;
-    }
-
 }

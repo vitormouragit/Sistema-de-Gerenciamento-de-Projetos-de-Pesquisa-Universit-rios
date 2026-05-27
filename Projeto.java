@@ -1,26 +1,35 @@
+import entidades.Aluno;
 import entidades.Professor;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Projeto {
     private int id;
     private String titulo;
     private String descricao;
-    private Professor coordenador;
+    private Professor orientador;
     private String area;
     private String dataInicio;
     private String prazo;
     private int vagas;
     private boolean ativo;
+    private List<Aluno> participantes;
 
-    public Projeto(int id, String titulo, String descricao, Professor coordenador, String area, String dataInicio, String prazo, int vagas){
+    public Projeto(int id, String titulo, String descricao, Professor orientador, String area, String dataInicio, String prazo, int vagas){
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.coordenador = coordenador;
+        this.orientador = orientador;
         this.area = area;
         this.dataInicio = dataInicio;
         this.prazo = prazo;
         this.vagas = vagas;
         this.ativo = true;
+        this.participantes = new ArrayList<>();
+    }
+
+    public List<Aluno> getParticipantes() {
+        return participantes;
     }
 
     public int getId() {
@@ -35,8 +44,8 @@ public class Projeto {
         return descricao;
     }
 
-    public Professor getCoordenador() {
-        return coordenador;
+    public Professor getOrientador() {
+        return orientador;
     }
 
     public String getArea() {
@@ -57,5 +66,14 @@ public class Projeto {
 
     public boolean isAtivo() {
         return ativo;
+    }
+
+    public void adicionarParticipante(Aluno aluno) {
+        if (this.vagas > 0) {
+            this.participantes.add(aluno);
+            this.vagas--;
+        } else {
+            // Aqui futuramente você pode lançar a sua VagasEsgotadasException!
+        }
     }
 }
