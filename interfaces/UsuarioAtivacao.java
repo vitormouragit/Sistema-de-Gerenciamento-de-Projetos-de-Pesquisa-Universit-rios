@@ -1,6 +1,6 @@
 package interfaces;
 
 public interface UsuarioAtivacao {
-    boolean ativar();
-    boolean desativar();
+    void ativar();
+    void desativar();
 }

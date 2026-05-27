@@ -2,8 +2,8 @@ package entidades;
 
 public class Professor extends Usuario {
 
-    public Professor(String nome, String email, String senha, boolean ativo){
-        super(nome, email, senha, ativo);
+    public Professor(String nome, String email, String senha){
+        super(nome, email, senha);
     }
 
 }

@@ -4,16 +4,18 @@ import interfaces.UsuarioAtivacao;
 
 public class Coordenador extends Professor implements UsuarioAtivacao{
     
-    public Coordenador(String nome, String email, String senha, boolean ativo){
-        super(nome, email, senha, ativo);
+    public Coordenador(String nome, String email, String senha){
+        super(nome, email, senha);
     }
 
-    public boolean ativar(){
-       return true;
+    @Override
+    public void ativar(){
+       this.ativo = true;
     }
 
-    public boolean desativar(){
-        return false;
+    @Override
+    public void desativar(){
+        this.ativo = false;
     }
 
 }

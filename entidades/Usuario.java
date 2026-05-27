@@ -7,14 +7,14 @@ public abstract class Usuario{
     private String nome;
     private String email;
     private String senha;
-    private boolean ativo;
+    protected boolean ativo;
     private List<String> notificacoes;
 
-    public Usuario(String nome, String email, String senha, boolean ativo){
+    public Usuario(String nome, String email, String senha){
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.ativo = ativo;
+        this.ativo = true;
         this.notificacoes = new ArrayList<>();
     }
 
@@ -38,23 +38,13 @@ public abstract class Usuario{
         return ativo;
     }
 
-    public void setAtivo(boolean ativo){
-        this.ativo = ativo;
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", ativo=" + ativo +
+                '}';
     }
-
-    public void adicionarNotificacao(String mensagem){
-        this.notificacoes.add(mensagem);
-        
-    }
-
-    public List<String> getNotificacoes(){
-        return new ArrayList<>(notificacoes);
-    }
-
-    public void limparNotificacoes(){
-        this.notificacoes.clear();
-    }
-
-    public abstract String toString();
     
 }
