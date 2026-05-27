@@ -10,4 +10,8 @@ public class Aluno extends Usuario{
     public void exibirMenu(){
 
     }
+
+    public boolean solicitarParticipacao(Projeto projeto) {
+        return projeto.solicitarParticipacao(this);
+    }
 }

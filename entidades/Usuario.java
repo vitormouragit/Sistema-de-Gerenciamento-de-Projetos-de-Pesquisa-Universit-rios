@@ -1,10 +1,11 @@
 package entidades;
 
+import interfaces.Autenticavel;
 import interfaces.UsuarioNotificacao;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Usuario implements UsuarioNotificacao{
+public abstract class Usuario implements UsuarioNotificacao, Autenticavel{
     private String nome;
     private String email;
     private String senha;
@@ -56,6 +57,11 @@ public abstract class Usuario implements UsuarioNotificacao{
     @Override
     public void limparNotificacoes() {
         this.notificacoes.clear();
+    }
+
+    @Override
+    public boolean autenticar(String emailDigitado, String senhaDigitada) {
+        return this.email.equals(emailDigitado) && this.senha.equals(senhaDigitada) && this.ativo;
     }
 
     public abstract void exibirMenu();

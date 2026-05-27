@@ -1,5 +1,4 @@
-import entidades.Aluno;
-import entidades.Professor;
+package entidades;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +13,8 @@ public class Projeto {
     private int vagas;
     private boolean ativo;
     private List<Aluno> participantes;
+    private List<Aluno> solicitantes;
+    private List<Relatorio> relatoriosParciais;
 
     public Projeto(int id, String titulo, String descricao, Professor orientador, String area, String dataInicio, String prazo, int vagas){
         this.id = id;
@@ -26,6 +27,8 @@ public class Projeto {
         this.vagas = vagas;
         this.ativo = true;
         this.participantes = new ArrayList<>();
+        this.solicitantes = new ArrayList<>();
+        this.relatoriosParciais = new ArrayList<>();
     }
 
     public List<Aluno> getParticipantes() {
