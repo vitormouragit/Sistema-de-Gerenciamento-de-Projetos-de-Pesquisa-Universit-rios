@@ -71,12 +71,41 @@ public class Projeto {
         return ativo;
     }
 
-    public void adicionarParticipante(Aluno aluno) {
-        if (this.vagas > 0) {
-            this.participantes.add(aluno);
-            this.vagas--;
-        } else {
-            // Aqui futuramente você pode lançar a sua VagasEsgotadasException!
+    
+    public boolean solicitarParticipacao(Aluno aluno) {
+        if (!ativo || solicitantes.contains(aluno) || participantes.contains(aluno) || participantes.size() >= vagas) {
+            return false;
         }
+        boolean added = solicitantes.add(aluno);
+        if (added) {
+            coordenador.adicionarNotificacao("Solicitação de participação: " + aluno.getNome() + " no projeto " + this.titulo);
+        }
+        return added;
     }
+
+    public boolean aceitarParticipacao(Aluno aluno) {
+        if (!solicitantes.remove(aluno) || participantsContains(aluno) || participantes.size() >= vagas) {
+            return false;
+        }
+        boolean added = participantes.add(aluno);
+        if (added) {
+            coordenador.adicionarNotificacao("Aluno " + aluno.getNome() + " aceito no projeto " + this.titulo);
+            aluno.adicionarNotificacao("Você foi aceito no projeto: " + this.titulo);
+        }
+        return added;
+    }
+
+    private boolean participantsContains(Aluno aluno) {
+        return participantes.contains(aluno);
+    }
+
+    public boolean desistirParticipacao(Aluno aluno) {
+        boolean removed = participantes.remove(aluno);
+        if (removed) {
+            coordenador.adicionarNotificacao("Aluno " + aluno.getNome() + " desistiu do projeto " + this.titulo);
+            aluno.adicionarNotificacao("Você desistiu do projeto: " + this.titulo);
+        }
+        return removed;
+    }
+    
 }
